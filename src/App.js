@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <div>
-      <button Toggle={pokaziOsobe}>Pokazi osobe!</button>
+      <button Toggle={pokaziOsobe}>Pokazi osobe</button>
       <div style={showPersons}>
         <Persons ime={persons.osobe[0].ime} godine={persons.osobe[0].godine}/>
         <Persons ime={persons.osobe[1].ime} godine={persons.osobe[1].godine}/>
