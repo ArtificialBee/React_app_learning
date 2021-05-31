@@ -1,28 +1,37 @@
-import { render } from '@testing-library/react';
-import React,{Components} from 'react'
+import React,{useState} from 'react'
 import './App.css';
+import Persons from './Persons';
 
-// function App() {
-//   return (<div>
 
-//   </div>);
-// }
+const App = () => {
+  const [persons,personsHandler]=useState({
+    osobe: [
+      {ime: "Edvin", godine:"24"},
+      {ime: "Almina", godine: "23"},
+      {ime: "Hadir", godine:"24"}
+    ]
+  });
+  
+  const [showPersons,showPersonsHandler]=useState({
+    visibility: "hidden"
+  });
 
-class App extends Components{
-  state=[
-    {
-      ime: "Edvin", godine: 23,
-      ime: "Almina", godine: 24,
-      ime: "Malik", godine:56
-    }
-  ];
+  const pokaziOsobe=()=>{
+    showPersonsHandler({visibility: "visible"});
+  }
+
+
+  return (
+    <div>
+      <button Toggle={pokaziOsobe}>Pokazi osobe!</button>
+      <div style={showPersons}>
+        <Persons ime={persons.osobe[0].ime} godine={persons.osobe[0].godine}/>
+        <Persons ime={persons.osobe[1].ime} godine={persons.osobe[1].godine}/>
+        <Persons ime={persons.osobe[2].ime} godine={persons.osobe[2].godine}/>
+      </div>
+
+    </div>
+  );
 }
-
-render(
-
-  <div>
-    
-  </div>
-);
 
 export default App;
