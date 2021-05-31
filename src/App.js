@@ -9,27 +9,33 @@ const App = () => {
       {ime: "Edvin", godine:"24"},
       {ime: "Almina", godine: "23"},
       {ime: "Hadir", godine:"24"}
-    ]
+    ],
+    vidljivost: false
   });
   
-  const [showPersons,showPersonsHandler]=useState({
-    visibility: "hidden"
+const pokaziOsobe=()=>{
+  const v=persons.vidljivost;
+  personsHandler({
+    osobe: [
+      {ime: "Edvin", godine:"24"},
+      {ime: "Almina", godine: "23"},
+      {ime: "Hadir", godine:"24"}
+    ],
+    vidljivost: !v
   });
-
-  const pokaziOsobe=()=>{
-    showPersonsHandler({visibility: "visible"});
-  }
+}
 
 
   return (
     <div>
-      <button Toggle={pokaziOsobe}>Pokazi osobe</button>
-      <div style={showPersons}>
+      <button onClick={pokaziOsobe}>Pokazi osobe</button>
+      {persons.vidljivost?
+      <div>
         <Persons ime={persons.osobe[0].ime} godine={persons.osobe[0].godine}/>
         <Persons ime={persons.osobe[1].ime} godine={persons.osobe[1].godine}/>
         <Persons ime={persons.osobe[2].ime} godine={persons.osobe[2].godine}/>
-      </div>
-
+      </div>:null
+      }
     </div>
   );
 }
