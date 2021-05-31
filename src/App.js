@@ -25,17 +25,22 @@ const pokaziOsobe=()=>{
   });
 }
 
+let ljudi=null; //Kreiramo varijablu "ljudi"
 
-  return (
-    <div>
-      <button onClick={pokaziOsobe}>Pokazi osobe</button>
-      {persons.vidljivost?
+if(persons.vidljivost){ //Ukoliko je potrebno prikazati, tek onda joj dodjeljujemo vrijednost
+  ljudi=(
       <div>
         <Persons ime={persons.osobe[0].ime} godine={persons.osobe[0].godine}/>
         <Persons ime={persons.osobe[1].ime} godine={persons.osobe[1].godine}/>
         <Persons ime={persons.osobe[2].ime} godine={persons.osobe[2].godine}/>
-      </div>:null
-      }
+      </div>)
+}
+
+
+  return (
+    <div>
+      <button onClick={pokaziOsobe}>Pokazi osobe</button>
+      {ljudi}
     </div>
   );
 }
