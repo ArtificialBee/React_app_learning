@@ -11,34 +11,36 @@ class App extends Component{
       {id:"3",name: "Hadir",age:"25"},
       {id:"4",name: "Malik",age:"26"},
       {id:"5",name: "Dzenana",age:"25"}
+
     ],
     visibility: false
   };
 
- togglePersonsHandler=()=>{
-  const vis=this.state.visibility;
-  this.setState({visibility: !vis})
- }
+togglePersonsHandler=()=>{
+  const doesShowPersons=this.state.visibility;
+  this.setState({visibility: !doesShowPersons});
+}
 
- deletePersonHandler=(indexPerson)=>{
-  const persones=[...this.state.persons];
-  persones.splice(indexPerson,1);
-  this.setState({persons: persones});
-
- }
-
+deletePerson=(personIndex)=>{
+  const persons=[...this.state.persons];
+  persons.splice(personIndex,1);
+  this.setState({persons: persons});
+}
 
 
   render(){
-    
-    let showPersons=null; //Default value of showing persons
+ 
+    let showPersons=null;
 
     if(this.state.visibility){
-      showPersons=(this.state.persons.map((person,index)=>{
-        return <Persons name={person.name} age={person.age} click={()=> this.deletePersonHandler(index)} key={person.id}/>
-      }));
+      showPersons=(
+        <div>
+          {this.state.persons.map((person,index)=>{
+            return <Persons name={person.name} age={person.age} key={person.id} click={()=> this.deletePerson(index)}/>
+          })}
+        </div>
+      );
     }
-
 
     return(
       <div className="App">

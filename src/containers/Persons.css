@@ -21,3 +21,15 @@
 
   height: 100%;
 }
+
+.dlt-btn {
+  height: 30px;
+  width: 50px;
+  background-color: rgb(255, 95, 95);
+  font-weight: bolder;
+}
+
+.dlt-btn:hover {
+  background-color: rgb(252, 140, 140);
+  cursor: pointer;
+}
