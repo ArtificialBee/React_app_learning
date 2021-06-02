@@ -1,0 +1,13 @@
+.person1 {
+  text-align: center;
+  border: 2px solid purple;
+  margin: 10px 0;
+  padding: 10px 0;
+  background-color: blueviolet;
+  transition: all 0.5s;
+}
+
+.person2 {
+  background-color: brown;
+  color: white;
+}

@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Person {
+  box-shadow: 0 0 5px black;
+  border-radius: 10px;
+  margin: 20px auto;
+  height: 50px;
+  width: 300px;
+}
+
+.Person h2 {
+  color: darkred;
+}
