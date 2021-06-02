@@ -5,13 +5,19 @@
 }
 
 .Person {
-  box-shadow: 0 0 5px black;
+  box-shadow: 0 2px 2px black;
   border-radius: 10px;
   margin: 20px auto;
   height: 50px;
-  width: 300px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .Person h2 {
   color: darkred;
+
+  height: 100%;
 }
