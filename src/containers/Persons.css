@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Person {
+  box-shadow: 0 2px 2px black;
+  border-radius: 10px;
+  margin: 20px auto;
+  height: 50px;
+  width: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.Person h2 {
+  color: darkred;
+  height: 100%;
+}
+
+.dlt-btn {
+  height: 30px;
+  color: rgb(131, 131, 131);
+  width: 50px;
+  background-color: rgb(255, 95, 95);
+  font-weight: bolder;
+}
+
+.dlt-btn:hover {
+  background-color: rgb(252, 140, 140);
+  cursor: pointer;
+}
