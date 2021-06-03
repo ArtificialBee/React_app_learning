@@ -1,6 +1,8 @@
 import React,{Component} from 'react'
 import './App.css';
-import Persons from './Persons';
+import Persons from '../components/Persons/Persons'
+import Cockpit from '../components/Cockpit/Cockpit';
+
 
 
 class App extends Component{
@@ -27,25 +29,36 @@ deletePerson=(personIndex)=>{
   this.setState({persons: persons});
 }
 
+  changePersonName=(event,id)=>{
+    const personIndex=this.state.persons.findIndex(pers=>{
+      return pers.id===id
+    }); //Pronalazak indeksa osobe na osnovu njenog id-a
+    const pe={...this.state.persons[personIndex]}; //Duboka kopija osobe sa tim ondeksom
+    pe.name=event.target.value; //Izmjena vrijednosti duboke kopije
+    const persones=[...this.state.persons];
+    persones[personIndex].name=pe.name;
+    this.setState({persons: persones})
+  }
+
+
+
 
   render(){
  
     let showPersons=null;
-
     if(this.state.visibility){
-      showPersons=(
-        <div>
-          {this.state.persons.map((person,index)=>{
-            return <Persons name={person.name} age={person.age} key={person.id} click={()=> this.deletePerson(index)}/>
-          })}
-        </div>
-      );
+      showPersons=<Persons 
+            persons={this.state.persons} 
+            clicked={this.deletePerson} 
+            changed={this.changePersonName}/>
     }
-
     return(
+  
       <div className="App">
-        <button onClick={this.togglePersonsHandler}>KLIKNIII</button>
-        {showPersons}
+         <Cockpit togglePersons={this.togglePersonsHandler}/>
+         {showPersons} 
+
+
       </div>
     );
   }
